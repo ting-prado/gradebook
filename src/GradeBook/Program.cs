@@ -1,6 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
-using System.Collections.Generic;
 
 namespace GradeBook
 {
@@ -13,7 +12,10 @@ namespace GradeBook
         book.AddGrade(90.5);
         book.AddGrade(77.5);
 
-        book.ShowStatistics();
+        var stats = book.GetStatistics();
+        Console.WriteLine($"The lowest grade is {stats.Low}.");
+        Console.WriteLine($"The highest grade is {stats.High}.");
+        Console.WriteLine($"The average of grades is {stats.Average:N2}.");
       }
     }
 }
