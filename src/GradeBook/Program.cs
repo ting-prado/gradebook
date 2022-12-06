@@ -17,8 +17,25 @@ namespace GradeBook
           {
             break;
           } else {
-            var grade = double.Parse(input);
-            book.AddGrade(grade);
+
+            try
+            {
+              var grade = double.Parse(input);
+              book.AddGrade(grade);
+            }
+            catch(ArgumentException ex)
+            {
+              Console.WriteLine(ex.Message);
+              // throw; - if you want the program to stop after the error
+            }
+            catch(FormatException ex)
+            {
+              Console.WriteLine(ex.Message);
+            }
+            finally 
+            {
+              Console.WriteLine("***");
+            }
           }
         }
 
